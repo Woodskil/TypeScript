@@ -33,10 +33,7 @@ test("Negative Credite Card Donation", async ({ page }) => {
   await donateModal.thirdStepForm.clickContinueButon();
 
   await donateModal.fourthStepForm.waitingForElementVisible();
-  await donateModal.fourthStepForm.fillPersonalInfoForm(
-    page,
-    personalInfo.example,
-  );
+  await donateModal.fourthStepForm.fillPersonalInfoForm(personalInfo.example);
   await donateModal.fourthStepForm.clickContinueButon();
 
   await donateModal.thirdStepForm.waitingForElementVisible();

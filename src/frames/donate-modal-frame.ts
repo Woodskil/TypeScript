@@ -1,11 +1,8 @@
-import { test, FrameLocator, Page, Frame } from "@playwright/test";
+import { test, Page, Frame } from "@playwright/test";
 import { FiatDonatForm } from "../elements/forms/fiat-donate-form";
 import { PaymentOption } from "../elements/forms/payment-option";
 import { CreditCardForm } from "../elements/forms/credit-card-form";
 import { PersonalInfoForm } from "../elements/forms/personal-info-form";
-import { BaseElement } from "../elements/base-element";
-import { url } from "inspector";
-import { emitWarning } from "process";
 
 export class DonateModal {
   readonly firstStepForm: FiatDonatForm;
