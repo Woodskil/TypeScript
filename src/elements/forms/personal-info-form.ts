@@ -30,7 +30,6 @@ export class PersonalInfoForm extends BaseElement {
         for await (const letter of personalInfo.firstName) {
           await page.keyboard.type(letter);
         }
-        // await page.keyboard.type(personalInfo.firstName);
         await page.keyboard.press("Tab");
       });
       await test.step(`Fill '${personalInfo.lastName}' in the Last Name field`, async () => {
