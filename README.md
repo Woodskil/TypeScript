@@ -9,11 +9,15 @@ Dependencies:
 Pre-requisites: 
 1. Need to install latest node from https://nodejs.org/en
 2. Run following commands in the terminal: 
-    npm install
-    npx playwright install
-
+```
+npm install
+npx playwright install
+```
 To start test run the following command in the terminal:
-    npx playwright test --headed
-
+```
+npx playwright test --headed
+```
 To show allure report run the following command in the terminal: 
-    npx allure serve allure-results
+```
+npx allure serve allure-results
+```
