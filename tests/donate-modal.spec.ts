@@ -16,6 +16,7 @@ test.beforeEach(async ({ page }) => {
 
 test("Negative Credite Card Donation", async ({ page }) => {
   
+
   await DonateModal.waitingForFrameVisible(page);
   const donateModal = new DonateModal(page);
 
@@ -37,7 +38,7 @@ test("Negative Credite Card Donation", async ({ page }) => {
   await donateModal.fourthStepForm.fillPersonalInfoForm(personalInfo.example);
   await donateModal.fourthStepForm.clickContinueButon();
 
-  await page.waitForTimeout(5555);
+  // await page.waitForTimeout(5555);
 
   // Expect a title "to contain" a substring.
 });

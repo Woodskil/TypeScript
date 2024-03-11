@@ -5,6 +5,7 @@ import { CreditCardForm } from "../elements/forms/credit-card-form";
 import { PersonalInfoForm } from "../elements/forms/personal-info-form";
 import { BaseElement } from "../elements/base-element";
 import { url } from "inspector";
+import { emitWarning } from "process";
 
 export class DonateModal{
     readonly firstStepForm: FiatDonatForm;
@@ -20,8 +21,7 @@ export class DonateModal{
     
     constructor(page: Page) {
         this.page = page
-        const frames = page.frames();
-        const frame = page.frame({url: "https://data.fundraiseup.com/qa-test-7R58U3/"});
+        const frame = page.frame("__checkout2");
 
         if (!frame) {
             throw new Error(`Frame with name "${DonateModal.frameName}" not found`);
