@@ -20,16 +20,28 @@ export class PersonalInfoForm extends BaseElement{
       this.donateButton = page.locator('button[data-qa="privacy-continue"]');
     }
 
-  async fillPersonalInfoForm(personalInfo: PersonalInfo): Promise<void> {
+  async fillPersonalInfoForm(page: Page, personalInfo: PersonalInfo): Promise<void> {
     await test.step(`Fill the Personal Information form.`, async () => {
       await test.step(`Fill '${personalInfo.firstName}' in the First Name field`, async () => {
-        await this.firstName.fill(personalInfo.firstName);
+        // await this.firstName.fill(personalInfo.firstName);
+        for await (const letter of personalInfo.firstName) {
+          await page.keyboard.type(letter);
+        }
+        // await page.keyboard.type(personalInfo.firstName);
+        await page.keyboard.press('Tab')
       });
       await test.step(`Fill '${personalInfo.lastName}' in the Last Name field`, async () => {
-        await this.lasttName.fill(personalInfo.lastName);
+        // await this.lasttName.fill(personalInfo.lastName);
+        for await (const letter of personalInfo.lastName) {
+          await page.keyboard.type(letter);
+        }
+        await page.keyboard.press('Tab')
       });
       await test.step(`Fill '${personalInfo.email}' in the Email Address field`, async () => {
-        await this.email.fill(personalInfo.email);
+        // await this.email.fill(personalInfo.email);
+        for await (const letter of personalInfo.email) {
+          await page.keyboard.type(letter);
+        }
       });
     });
   }

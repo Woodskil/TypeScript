@@ -7,7 +7,7 @@ export type PersonalInfo = {
 const example: PersonalInfo = {
     firstName: "Donald",
     lastName: "Tramp",
-    email: "donald.tramp@non-realgmail.com",
+    email: "donald.tramp@example.com",
 };
 
 export const personalInfo = {

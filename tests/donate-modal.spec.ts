@@ -1,9 +1,10 @@
-import { test, expect } from "@playwright/test";
+import { test } from "@playwright/test";
 import { clientUrl } from "../test-data/url";
 import { DonateModal } from "../src/frames/donate-modal-frame";
 import { ClientPage } from "../src/pages/client-page";
 import { creditCard } from "../test-data/credit-card";
 import { personalInfo } from "../test-data/personal-info";
+import { tooltip } from "../test-data/tooltip";
 
 test.beforeEach(async ({ page }) => {
   console.log(`Running ${test.info().title}`);
@@ -15,7 +16,6 @@ test.beforeEach(async ({ page }) => {
 });
 
 test("Negative Credite Card Donation", async ({ page }) => {
-  
 
   await DonateModal.waitingForFrameVisible(page);
   const donateModal = new DonateModal(page);
@@ -35,10 +35,9 @@ test("Negative Credite Card Donation", async ({ page }) => {
   await donateModal.thirdStepForm.clickContinueButon();
 
   await donateModal.fourthStepForm.waitingForElementVisible();
-  await donateModal.fourthStepForm.fillPersonalInfoForm(personalInfo.example);
+  await donateModal.fourthStepForm.fillPersonalInfoForm(page, personalInfo.example);
   await donateModal.fourthStepForm.clickContinueButon();
 
-  // await page.waitForTimeout(5555);
-
-  // Expect a title "to contain" a substring.
+  await donateModal.thirdStepForm.waitingForElementVisible();
+  await donateModal.thirdStepForm.verifyCardContinueError(tooltip.cardDeclined)
 });
