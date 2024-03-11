@@ -1,18 +1,18 @@
 import { test, Page, Locator, Frame } from "@playwright/test";
 import { BaseElement } from "../base-element";
 
-export class PaymentOption extends BaseElement{
+export class PaymentOption extends BaseElement {
+  protected readonly thisXpath: string =
+    'div[data-qa="active-screen-payment-method"]';
+  protected readonly name: string = "Second Donation Step: Payment option";
 
-  protected readonly thisXpath: string = 'div[data-qa="active-screen-payment-method"]';
-  protected readonly name: string = 'Second Donation Step: Payment option';
-  
   private readonly coverFeeCheckbox: Locator;
   private readonly creditCardButton: Locator;
 
-  constructor(page: Page|Frame) {
-      super(page);
-      this.coverFeeCheckbox = page.locator('div[data-qa="cover-fee-checkbox"]');
-      this.creditCardButton = page.locator('button[data-qa="cc-button"]');
+  constructor(page: Page | Frame) {
+    super(page);
+    this.coverFeeCheckbox = page.locator('div[data-qa="cover-fee-checkbox"]');
+    this.creditCardButton = page.locator('button[data-qa="cc-button"]');
   }
 
   async deselectCoverFeeCheckbox(): Promise<void> {

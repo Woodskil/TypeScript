@@ -1,14 +1,15 @@
 import { test, Page, Locator } from "@playwright/test";
 
 export class ClientPage {
-
   protected readonly page: Page;
-  
+
   private readonly giveNowButton: Locator;
 
   constructor(page: Page) {
     this.page = page;
-    this.giveNowButton = page.frameLocator('iframe[title="Donate Button"]').locator('[data-qa="fun-element"]');
+    this.giveNowButton = page
+      .frameLocator('iframe[title="Donate Button"]')
+      .locator('[data-qa="fun-element"]');
   }
 
   async goto(url: string): Promise<void> {

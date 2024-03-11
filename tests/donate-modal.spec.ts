@@ -12,11 +12,9 @@ test.beforeEach(async ({ page }) => {
   const helpingHandFoundationPage = new ClientPage(page);
   await helpingHandFoundationPage.goto(clientUrl.HelpingHandFoundation);
   await helpingHandFoundationPage.clickGiveNowButton();
-  
 });
 
 test("Negative Credite Card Donation", async ({ page }) => {
-
   await DonateModal.waitingForFrameVisible(page);
   const donateModal = new DonateModal(page);
 
@@ -35,9 +33,12 @@ test("Negative Credite Card Donation", async ({ page }) => {
   await donateModal.thirdStepForm.clickContinueButon();
 
   await donateModal.fourthStepForm.waitingForElementVisible();
-  await donateModal.fourthStepForm.fillPersonalInfoForm(page, personalInfo.example);
+  await donateModal.fourthStepForm.fillPersonalInfoForm(
+    page,
+    personalInfo.example,
+  );
   await donateModal.fourthStepForm.clickContinueButon();
 
   await donateModal.thirdStepForm.waitingForElementVisible();
-  await donateModal.thirdStepForm.verifyCardContinueError(tooltip.cardDeclined)
+  await donateModal.thirdStepForm.verifyCardContinueError(tooltip.cardDeclined);
 });

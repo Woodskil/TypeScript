@@ -1,22 +1,21 @@
 import { test, Page, Locator, Frame } from "@playwright/test";
 import { BaseElement } from "../base-element";
 
-export class FiatDonatForm extends BaseElement{
-
+export class FiatDonatForm extends BaseElement {
   protected readonly thisXpath: string = 'form[data-qa="fiat-donate-form"]';
-  protected readonly name: string = 'First Donation Step: Fiat Form';
-  
+  protected readonly name: string = "First Donation Step: Fiat Form";
+
   private readonly monthlyButton: Locator;
   private readonly currencySelector: Locator;
   private readonly amountField: Locator;
   private readonly donateButton: Locator;
 
-  constructor(page: Page|Frame) {
-      super(page);
-      this.monthlyButton = page.locator('button[data-qa="more-frequent-button"]');
-      this.currencySelector = page.locator('select[data-qa="currency-selector"]');
-      this.amountField = page.locator('input[data-qa="amount"]');
-      this.donateButton = page.locator('button[data-qa="donate-button"]');
+  constructor(page: Page | Frame) {
+    super(page);
+    this.monthlyButton = page.locator('button[data-qa="more-frequent-button"]');
+    this.currencySelector = page.locator('select[data-qa="currency-selector"]');
+    this.amountField = page.locator('input[data-qa="amount"]');
+    this.donateButton = page.locator('button[data-qa="donate-button"]');
   }
 
   async clickMonthlyButton(): Promise<void> {
