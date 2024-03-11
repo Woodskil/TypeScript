@@ -1,10 +1,12 @@
 # Тестовое на вакансию QA Automation Engineer
 
-Dependencies: 
+Dependencies:
+```
 "@playwright/test": "^1.42.1",
 "@types/node": "^20.11.24",
 "allure-commandline": "^2.27.0",
 "allure-playwright": "^2.13.0"
+```
 
 Pre-requisites: 
 1. Need to install latest node from https://nodejs.org/en
